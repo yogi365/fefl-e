@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <input type="text" id="fullName" placeholder="Enter full name of user" /></br>
+    <input type="text" id="userName" placeholder="Enter User name of user" /></br>
+    <input type="email" id="email" placeholder="Enter email of user" /></br>
+    <input type="number" id="contact" placeholder="Enter Contact Number of user" /></br>
+    <button onclick="submit()">Submit</button>
+    <script>
+        function submit()
+        {
+            const userObject = {
+                name: document.querySelector('#fullName').value,
+                username: document.querySelector('#userName').value,
+                email: document.querySelector('#email').value,
+                phone: document.querySelector('#contact').value
+            }
+            axios.post('https://jsonplaceholder.typicode.com/users', userObject)
+                .then(data => console.log(data))
+
+        }
+    </script>
+</body>
+
+</html>
